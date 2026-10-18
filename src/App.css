@@ -1,0 +1,170 @@
+/* ============================================================
+   App Layout
+   ============================================================ */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ── Workspace (middle three columns) ──────────────── */
+.app__workspace {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Left Sidebar ───────────────────────────────────── */
+.app__sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-subtle);
+  overflow: hidden;
+  background: var(--surface-panel);
+}
+
+.app__sidebar-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.app__tab {
+  flex: 1;
+  padding: var(--space-2) var(--space-4);
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+.app__tab:hover { color: var(--text-primary); }
+.app__tab.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+.app__sidebar-content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Center Viewer ──────────────────────────────────── */
+.app__viewer {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-4);
+  background: var(--surface-bg);
+  display: flex;
+  align-items: stretch;
+}
+
+/* ── Right Inspector ────────────────────────────────── */
+.app__inspector {
+  width: var(--inspector-width);
+  flex-shrink: 0;
+  border-left: 1px solid var(--border-subtle);
+  background: var(--surface-panel);
+  overflow-y: auto;
+}
+
+.inspector__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.inspector__content {
+  padding: var(--space-4);
+}
+
+.inspector__heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.inspector__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--space-4);
+}
+
+.inspector__label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.inspector__value {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+.inspector__value.mono {
+  font-family: var(--font-mono);
+  color: var(--brand-300);
+}
+
+.inspector__input {
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  padding: var(--space-2) var(--space-3);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+.inspector__input:focus {
+  border-color: var(--accent-primary);
+}
+
+.inspector__thumbnail {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── FFmpeg loading overlay ─────────────────────────── */
+.app__ffmpeg-loading {
+  position: fixed;
+  bottom: calc(var(--timeline-height) + var(--space-4));
+  right: var(--space-4);
+  z-index: 200;
+  animation: slideUp 0.3s both;
+}
+
+.app__ffmpeg-loading-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-md);
+}

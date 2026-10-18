@@ -1,0 +1,273 @@
+.export-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.export-dialog {
+  background: var(--surface-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  width: 480px;
+  max-width: 95vw;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Header ────────────────────────────────────────── */
+.export-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.export-dialog__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.export-dialog__close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.export-dialog__close:hover {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+}
+
+/* ── Body ──────────────────────────────────────────── */
+.export-dialog__body {
+  padding: var(--space-6);
+}
+
+.export-dialog__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3);
+}
+
+/* Format grid */
+.export-format-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.export-format-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  background: var(--surface-card);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+.export-format-card:hover {
+  border-color: var(--brand-500);
+  background: rgba(37, 99, 235, 0.05);
+}
+.export-format-card.active {
+  border-color: var(--accent-primary);
+  background: rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+.export-format-card__icon { font-size: 1.3rem; }
+.export-format-card__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.export-format-card__desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Cut info */
+.export-dialog__cut-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  font-size: 0.78rem;
+  color: var(--status-warning);
+  margin-bottom: var(--space-4);
+}
+
+/* Error */
+.export-dialog__error {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: var(--status-error);
+  font-size: 0.8rem;
+}
+
+/* ── Progress ───────────────────────────────────────── */
+.export-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+}
+
+.export-progress__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.export-progress__bar-track {
+  width: 100%;
+  height: 6px;
+  background: var(--surface-elevated);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.export-progress__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-500), var(--brand-300));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.export-progress__pct {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-400);
+}
+
+.export-progress__hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ── Done ───────────────────────────────────────────── */
+.export-done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+}
+
+.export-done__icon { font-size: 2.5rem; }
+
+.export-done__label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--status-success);
+}
+
+.export-done__download-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  border: none;
+  background: var(--status-success);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.export-done__download-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.4);
+}
+
+.export-done__again-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+.export-done__again-btn:hover { color: var(--text-secondary); }
+
+/* ── Footer ────────────────────────────────────────── */
+.export-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.export-dialog__cancel {
+  background: none;
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.export-dialog__cancel:hover {
+  background: var(--surface-card);
+  color: var(--text-primary);
+}
+
+.export-dialog__export-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--accent-primary);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.export-dialog__export-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-glow);
+}
+.export-dialog__export-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

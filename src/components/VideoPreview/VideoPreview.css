@@ -1,0 +1,106 @@
+.video-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+/* ── Video element ──────────────────────────────────── */
+.video-preview__video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Overlay controls ───────────────────────────────── */
+.video-preview__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%);
+}
+.video-preview:hover .video-preview__overlay { opacity: 1; }
+
+.video-preview__overlay-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+.video-preview__ctrl-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+.video-preview__ctrl-btn:hover { background: rgba(255,255,255,0.3); }
+
+.video-preview__vol-slider {
+  width: 80px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.3);
+  outline: none;
+  cursor: pointer;
+}
+.video-preview__vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+/* ── Empty state ────────────────────────────────────── */
+.video-preview__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: var(--surface-panel);
+  border-radius: var(--radius-md);
+}
+
+.video-preview__empty-icon {
+  animation: fadeIn 0.4s both;
+}
+
+.video-preview__empty-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.video-preview__empty-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  max-width: 240px;
+  line-height: 1.5;
+}

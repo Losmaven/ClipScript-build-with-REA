@@ -1,0 +1,203 @@
+.media-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface-panel);
+  overflow: hidden;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.media-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.media-panel__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.media-panel__add-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-default);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.media-panel__add-btn:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+}
+
+/* ── Drop zone ──────────────────────────────────────── */
+.media-panel__dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin: var(--space-3);
+  padding: var(--space-6);
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+.media-panel__dropzone:hover,
+.media-panel__dropzone.active {
+  border-color: var(--accent-primary);
+  background: rgba(37, 99, 235, 0.05);
+  color: var(--brand-300);
+}
+.media-panel__dropzone.compact {
+  padding: var(--space-3);
+  flex-direction: row;
+  gap: var(--space-2);
+}
+
+.media-panel__dropzone-hint {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ── Media list ─────────────────────────────────────── */
+.media-panel__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 var(--space-2) var(--space-2);
+}
+
+/* ── Media item ─────────────────────────────────────── */
+.media-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  cursor: default;
+  transition: background var(--transition-fast);
+  border: 1px solid transparent;
+}
+.media-item:hover {
+  background: var(--surface-card);
+  border-color: var(--border-subtle);
+}
+.media-item:hover .media-item__actions { opacity: 1; }
+
+/* Thumbnail */
+.media-item__thumb {
+  position: relative;
+  width: 52px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.media-item__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.media-item__thumb-icon {
+  color: var(--text-muted);
+}
+
+.media-item__kind-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  padding: 1px 3px;
+  border-radius: 2px;
+  line-height: 1;
+}
+.media-item__kind-badge.video {
+  background: rgba(59, 91, 219, 0.85);
+  color: white;
+}
+.media-item__kind-badge.audio {
+  background: rgba(16, 152, 173, 0.85);
+  color: white;
+}
+
+/* Info */
+.media-item__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.media-item__name {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.media-item__meta {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Actions */
+.media-item__actions {
+  display: flex;
+  gap: var(--space-1);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.media-item__btn {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.media-item__btn.add {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--brand-400);
+}
+.media-item__btn.add:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+.media-item__btn.remove {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--status-error);
+}
+.media-item__btn.remove:hover {
+  background: var(--status-error);
+  color: white;
+}
